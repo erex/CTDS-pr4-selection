@@ -92,8 +92,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-06-13" />
-  <meta property="article:created" itemprop="dateCreated" content="2021-06-13" />
+  <meta property="article:published" itemprop="datePublished" content="2021-07-26" />
+  <meta property="article:created" itemprop="dateCreated" content="2021-07-26" />
   <meta name="article:author" content="Workshop development group" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","bibliography","csl"]}},"value":[{"type":"character","attributes":{},"value":["Camera trap distance sampling workshop"]},{"type":"character","attributes":{},"value":["<p style=\"color: red; font-size: 20px;\">Practical 4 solution:<br> model selection with overdispersed data<\/p>\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Workshop development group"]},{"type":"character","attributes":{},"value":["https://workshops.distancesampling.org"]},{"type":"character","attributes":{},"value":["CREEM, Univ of St Andrews"]},{"type":"character","attributes":{},"value":["https://www.creem.st-andrews.ac.uk"]}]}]},{"type":"character","attributes":{},"value":["2021-06-13"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["howeetal18.bib"]},{"type":"character","attributes":{},"value":["apa.csl"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","bibliography","csl"]}},"value":[{"type":"character","attributes":{},"value":["Camera trap distance sampling workshop"]},{"type":"character","attributes":{},"value":["<p style=\"color: red; font-size: 20px;\">Practical 4 solution:<br> model selection with overdispersed data<\/p>\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Workshop development group"]},{"type":"character","attributes":{},"value":["https://workshops.distancesampling.org"]},{"type":"character","attributes":{},"value":["CREEM, Univ of St Andrews"]},{"type":"character","attributes":{},"value":["https://www.creem.st-andrews.ac.uk"]}]}]},{"type":"character","attributes":{},"value":["2021-07-26"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"character","attributes":{},"value":["howeetal18.bib"]},{"type":"character","attributes":{},"value":["apa.csl"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1458,7 +1458,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Camera trap distance sampling workshop","description":"<p style=\"color: red; font-size: 20px;\">Practical 4 solution:<br> model selection with overdispersed data<\/p>","authors":[{"author":"Workshop development group","authorURL":"https://workshops.distancesampling.org","affiliation":"CREEM, Univ of St Andrews","affiliationURL":"https://www.creem.st-andrews.ac.uk","orcidID":""}],"publishedDate":"2021-06-13T00:00:00.000+01:00","citationText":"group, 2021"}
+{"title":"Camera trap distance sampling workshop","description":"<p style=\"color: red; font-size: 20px;\">Practical 4 solution:<br> model selection with overdispersed data<\/p>","authors":[{"author":"Workshop development group","authorURL":"https://workshops.distancesampling.org","affiliation":"CREEM, Univ of St Andrews","affiliationURL":"https://www.creem.st-andrews.ac.uk","orcidID":""}],"publishedDate":"2021-07-26T00:00:00.000+01:00","citationText":"group, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1479,7 +1479,7 @@ Practical 4 solution:<br> model selection with overdispersed data
 <div class="d-byline">
   Workshop development group <a href="https://workshops.distancesampling.org" class="uri">https://workshops.distancesampling.org</a> (CREEM, Univ of St Andrews)<a href="https://www.creem.st-andrews.ac.uk" class="uri">https://www.creem.st-andrews.ac.uk</a>
   
-<br />2021-06-13
+<br />2021-07-26
 </div>
 
 <div class="d-article">
@@ -1500,48 +1500,9 @@ Practical 4 solution:<br> model selection with overdispersed data
 </nav>
 </div>
 <h1 id="model-selection-adjustments-from-overdispersion">Model selection adjustments from overdispersion</h1>
-<p>Overdispersion causes AIC to select overly-complex models, so analysts should specify the number/order of adjustment terms manually when fitting distance sampling models to data from camera traps, rather than allowing automated selection using AIC. <span class="citation" data-cites="howe_model_2019"><a href="#ref-howe_model_2019" role="doc-biblioref">Howe, Buckland, Després-Einspenner, &amp; Kühl</a> (<a href="#ref-howe_model_2019" role="doc-biblioref">2019</a>)</span> describes two methods for performing model selection of distance sampling models in the face of overdispersion. Here we provide R functions to perform the first of these methods. The first method of <span class="citation" data-cites="howe_model_2019"><a href="#ref-howe_model_2019" role="doc-biblioref">Howe, Buckland, Després-Einspenner, &amp; Kühl</a> (<a href="#ref-howe_model_2019" role="doc-biblioref">2019</a>)</span> employs a two-step process. First, an overdisersion factor <span class="math inline">\((\hat{c})\)</span> is computed for each key function family from the most complex model in each family. The <span class="math inline">\(\hat{c}\)</span> is derived from the <span class="math inline">\(\chi^2\)</span> goodness of fit test statistic divided by its degrees of freedom. This results in an adjusted AIC score for each model in the key function family:</p>
+<p>Overdispersion causes AIC to select overly-complex models, so analysts should specify the number/order of adjustment terms manually when fitting distance sampling models to data from camera traps, rather than allowing automated selection using AIC. <span class="citation" data-cites="howe_model_2019"><a href="#ref-howe_model_2019" role="doc-biblioref">Howe, Buckland, Després-Einspenner, &amp; Kühl</a> (<a href="#ref-howe_model_2019" role="doc-biblioref">2019</a>)</span> describes two methods for performing model selection of distance sampling models in the face of overdispersion. Here we provide R functions to perform the first of these methods. The first method of <span class="citation" data-cites="howe_model_2019"><a href="#ref-howe_model_2019" role="doc-biblioref">Howe et al.</a> (<a href="#ref-howe_model_2019" role="doc-biblioref">2019</a>)</span> employs a two-step process. First, an overdisersion factor <span class="math inline">\((\hat{c})\)</span> is computed for each key function family from the most complex model in each family. The <span class="math inline">\(\hat{c}\)</span> is derived from the <span class="math inline">\(\chi^2\)</span> goodness of fit test statistic divided by its degrees of freedom. This results in an adjusted AIC score for each model in the key function family:</p>
 <p><span class="math display">\[QAIC = -2 \left \{ \frac{log(\mathcal{L}(\hat{\theta}))}{\hat{c}} \right \} + 2K\]</span></p>
-<p>Code to perform this QAIC computation is found in the function <code>qaic.pass1</code>:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">chat</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">modobj</span><span class="op">)</span> <span class="op">{</span>
-<span class="co">#  computes c-hat for a dsmodel object using Method 1 of Howe et al. (2018)</span>
-  <span class="va">test</span> <span class="op">&lt;-</span> <span class="fu">gof_ds</span><span class="op">(</span><span class="va">modobj</span><span class="op">)</span>
-  <span class="va">num</span> <span class="op">&lt;-</span> <span class="va">test</span><span class="op">$</span><span class="va">chisquare</span><span class="op">$</span><span class="va">chi1</span><span class="op">$</span><span class="va">chisq</span>
-  <span class="va">denom</span> <span class="op">&lt;-</span> <span class="va">test</span><span class="op">$</span><span class="va">chisquare</span><span class="op">$</span><span class="va">chi1</span><span class="op">$</span><span class="va">df</span>
-  <span class="va">chat</span> <span class="op">&lt;-</span> <span class="va">num</span><span class="op">/</span><span class="va">denom</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">chat</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">qaic</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">modobj</span>, <span class="va">chat</span><span class="op">)</span> <span class="op">{</span>
-<span class="co">#  computes QAIC for a dsmodel object given a c-hat</span>
-  <span class="va">value</span> <span class="op">&lt;-</span> <span class="fl">2</span><span class="op">*</span> <span class="va">modobj</span><span class="op">$</span><span class="va">ddf</span><span class="op">$</span><span class="va">ds</span><span class="op">$</span><span class="va">value</span><span class="op">/</span><span class="va">chat</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">modobj</span><span class="op">$</span><span class="va">ddf</span><span class="op">$</span><span class="va">ds</span><span class="op">$</span><span class="va">pars</span><span class="op">)</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">qaic.pass1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-<span class="co">#   Performs Pass 1 model selection based upon Method 1 of Howe et al. (2018)</span>
-<span class="co">#   Arguments are dsmodel objects; assumed all based on same key function</span>
-<span class="co">#    c-hat is computed for the most parameter-rich model in the group</span>
-<span class="co">#    qaic is calculated for each model in group based upon this c-hat</span>
-<span class="co">#   Result returned in the form of a data.frame with model name, npar, aic and qaic</span>
-  <span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
-  <span class="va">num.models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">models</span><span class="op">)</span>
-  <span class="va">npar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">models</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">ddf</span><span class="op">$</span><span class="va">ds</span><span class="op">$</span><span class="va">par</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>  
-  <span class="va">modname</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">models</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">$</span><span class="va">ddf</span><span class="op">$</span><span class="va">name.message</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">aic</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">models</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">$</span><span class="va">ddf</span><span class="op">$</span><span class="va">criterion</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">chat.bigmod</span> <span class="op">&lt;-</span> <span class="fu">chat</span><span class="op">(</span><span class="va">models</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">npar</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
-  <span class="va">qaic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span>mode<span class="op">=</span><span class="st">&quot;numeric&quot;</span>, length <span class="op">=</span> <span class="va">num.models</span><span class="op">)</span>
-  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">num.models</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">qaic</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">qaic</span><span class="op">(</span><span class="va">models</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>, <span class="va">chat.bigmod</span><span class="op">)</span>
-  <span class="op">}</span>
-  <span class="va">nicetab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">modname</span>, <span class="va">npar</span>, <span class="va">aic</span>, <span class="va">qaic</span><span class="op">)</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">nicetab</span><span class="op">)</span>
-<span class="op">}</span>
-</code></pre>
-</div>
-</div>
+<p>Code to perform this QAIC computation is found in the function <code>QAIC</code> in the <code>Distance</code> R package.</p>
 <h1 id="re-acquire-previously-fitted-models">Re-acquire previously fitted models</h1>
 <p>Load the <code>Distance</code> package, the previously fitted models and the flat file of peak activity duiker data.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1556,9 +1517,9 @@ Practical 4 solution:<br> model selection with overdispersed data
 <p>Apply the functions defined to compute QAIC values for the half normal, uniform and hazard rate key function models.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">hnQAIC</span> <span class="op">&lt;-</span> <span class="fu">qaic.pass1</span><span class="op">(</span><span class="va">hn0</span>, <span class="va">hn1</span><span class="op">)</span>
-<span class="va">uniQAIC</span> <span class="op">&lt;-</span> <span class="fu">qaic.pass1</span><span class="op">(</span><span class="va">uni1</span>, <span class="va">uni2</span><span class="op">)</span>
-<span class="va">hrQAIC</span> <span class="op">&lt;-</span> <span class="fu">qaic.pass1</span><span class="op">(</span><span class="va">hr0</span>, <span class="va">hr1</span>, <span class="va">hr2</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">hnQAIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Distance/man/QAIC.html">QAIC</a></span><span class="op">(</span><span class="va">hn0</span>, <span class="va">hn1</span>, <span class="va">hn2</span><span class="op">)</span>
+<span class="va">uniQAIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Distance/man/QAIC.html">QAIC</a></span><span class="op">(</span><span class="va">uni1</span>, <span class="va">uni2</span><span class="op">)</span>
+<span class="va">hrQAIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Distance/man/QAIC.html">QAIC</a></span><span class="op">(</span><span class="va">hr0</span>, <span class="va">hr1</span>, <span class="va">hr2</span><span class="op">)</span>
 </code></pre>
 </div>
 </div>
@@ -1568,24 +1529,26 @@ Practical 4 solution:<br> model selection with overdispersed data
 <caption><span id="tab:pass1a">Table 1: </span>QAIC values for half normal key models.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">modname</th>
-<th style="text-align: right;">npar</th>
-<th style="text-align: right;">aic</th>
-<th style="text-align: right;">qaic</th>
+<th style="text-align: left;"></th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">QAIC</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">half-normal key function</td>
+<td style="text-align: left;">hn0</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">25081.61</td>
-<td style="text-align: right;">1350.544</td>
+<td style="text-align: right;">1132.719</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">half-normal key function with Hermite(4) adjustments</td>
+<td style="text-align: left;">hn1</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">24944.60</td>
-<td style="text-align: right;">1347.069</td>
+<td style="text-align: right;">1128.462</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hn2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1130.438</td>
 </tr>
 </tbody>
 </table>
@@ -1595,23 +1558,20 @@ Practical 4 solution:<br> model selection with overdispersed data
 <caption><span id="tab:pass1b">Table 2: </span>QAIC values for uniform key models.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">modname</th>
-<th style="text-align: right;">npar</th>
-<th style="text-align: right;">aic</th>
-<th style="text-align: right;">qaic</th>
+<th style="text-align: left;"></th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">QAIC</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">uniform key function with cosine(1) adjustments</td>
+<td style="text-align: left;">uni1</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">24997.45</td>
 <td style="text-align: right;">944.6180</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">uniform key function with cosine(1,2) adjustments</td>
+<td style="text-align: left;">uni2</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">24995.79</td>
 <td style="text-align: right;">946.4803</td>
 </tr>
 </tbody>
@@ -1622,30 +1582,26 @@ Practical 4 solution:<br> model selection with overdispersed data
 <caption><span id="tab:pass1c">Table 3: </span>QAIC values for hazard rate key models.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">modname</th>
-<th style="text-align: right;">npar</th>
-<th style="text-align: right;">aic</th>
-<th style="text-align: right;">qaic</th>
+<th style="text-align: left;"></th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">QAIC</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">hazard-rate key function</td>
+<td style="text-align: left;">hr0</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">24877.6</td>
-<td style="text-align: right;">2009.813</td>
+<td style="text-align: right;">2013.81</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">hazard-rate key function with cosine(2) adjustments</td>
+<td style="text-align: left;">hr1</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">24879.6</td>
-<td style="text-align: right;">2015.813</td>
+<td style="text-align: right;">2015.81</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">hazard-rate key function with cosine(2,3) adjustments</td>
+<td style="text-align: left;">hr2</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">24881.6</td>
-<td style="text-align: right;">2017.813</td>
+<td style="text-align: right;">2017.81</td>
 </tr>
 </tbody>
 </table>
@@ -1654,11 +1610,10 @@ Practical 4 solution:<br> model selection with overdispersed data
 <p>The second step of model selection ranks the models by their <span class="math inline">\(\hat{c}\)</span> values.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">winners</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">hn1</span>, <span class="va">uni1</span>, <span class="va">hr0</span><span class="op">)</span>
-<span class="va">chats</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">winners</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">chat</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">modnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">winners</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">$</span><span class="va">ddf</span><span class="op">$</span><span class="va">name.message</span><span class="op">)</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">chats</span> <span class="op">&lt;-</span> <span class="fu">chi2_select</span><span class="op">(</span><span class="va">hn1</span>, <span class="va">uni1</span>, <span class="va">hr0</span><span class="op">)</span>
+<span class="va">modnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">hn1</span>, <span class="va">uni1</span>, <span class="va">hr0</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">$</span><span class="va">ddf</span><span class="op">$</span><span class="va">name.message</span><span class="op">)</span><span class="op">)</span>
 <span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">modnames</span>, <span class="va">chats</span><span class="op">)</span>
-<span class="va">results.sort</span> <span class="op">&lt;-</span> <span class="va">results</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">results</span><span class="op">$</span><span class="va">chats</span><span class="op">)</span>,<span class="op">]</span>
+<span class="va">results.sort</span> <span class="op">&lt;-</span> <span class="va">results</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">results</span><span class="op">$</span><span class="va">criteria</span><span class="op">)</span>,<span class="op">]</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">results.sort</span>, digits<span class="op">=</span><span class="fl">2</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span>,
              caption<span class="op">=</span><span class="st">&quot;Compare with Table S5 of Howe et al. (2018)&quot;</span><span class="op">)</span>
 </code></pre>
@@ -1668,7 +1623,7 @@ Practical 4 solution:<br> model selection with overdispersed data
 <thead>
 <tr class="header">
 <th style="text-align: left;">modnames</th>
-<th style="text-align: right;">chats</th>
+<th style="text-align: right;">criteria</th>
 </tr>
 </thead>
 <tbody>
@@ -1717,7 +1672,7 @@ Practical 4 solution:<br> model selection with overdispersed data
 
 </div>
 <h2 id="density-estimates">Density estimates</h2>
-<p>The camera traps do not view the entire area around them, as would be the case with simple point transect sampling. The portion of the area sampled needs to be incorporated in the estimation of abundance. The data file contains a column <code>multiplier</code> that represents the proportion of the circle sampled. <span class="citation" data-cites="howeetal"><a href="#ref-howeetal" role="doc-biblioref">Howe, Buckland, Després-Einspenner, &amp; Kühl</a> (<a href="#ref-howeetal" role="doc-biblioref">2017</a>)</span> notes the camera angle of view (AOV) of 42<span class="math inline">\(^{\circ}\)</span>. The proportion of the circle viewed is this value over 360<span class="math inline">\(^{\circ}\)</span>.</p>
+<p>The camera traps do not view the entire area around them, as would be the case with simple point transect sampling. The portion of the area sampled needs to be incorporated in the estimation of abundance. The data file contains a column <code>multiplier</code> that represents the proportion of the circle sampled. <span class="citation" data-cites="howeetal"><a href="#ref-howeetal" role="doc-biblioref">Howe et al.</a> (<a href="#ref-howeetal" role="doc-biblioref">2017</a>)</span> notes the camera angle of view (AOV) of 42<span class="math inline">\(^{\circ}\)</span>. The proportion of the circle viewed is this value over 360<span class="math inline">\(^{\circ}\)</span>.</p>
 <p>An argument to <code>dht2</code> is <code>sample_fraction</code>, an obvious place to include this quantity.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1732,6 +1687,8 @@ Practical 4 solution:<br> model selection with overdispersed data
 <pre><code>Density estimates from distance sampling
 Stratification : geographical 
 Variance       : P2, n/L 
+Multipliers    : none 
+Sample fraction : 0.1166667 
 
 
 Summary statistics:
@@ -1746,7 +1703,7 @@ Component percentages of variance:
  .Label Detection    ER
   Total      0.23 99.77</code></pre>
 </div>
-<p>The density estimate uses detections from only a portion of the day (termed “peak activity” in <span class="citation" data-cites="howeetal"><a href="#ref-howeetal" role="doc-biblioref">Howe, Buckland, Després-Einspenner, &amp; Kühl</a> (<a href="#ref-howeetal" role="doc-biblioref">2017</a>)</span>). In the next practical, we examine activity patterns from the camera data to adjust density estimates for daily periods of inactivity when cameras will not trigger.</p>
+<p>The density estimate uses detections from only a portion of the day (termed “peak activity” in <span class="citation" data-cites="howeetal"><a href="#ref-howeetal" role="doc-biblioref">Howe et al.</a> (<a href="#ref-howeetal" role="doc-biblioref">2017</a>)</span>). In the next practical, we examine activity patterns from the camera data to adjust density estimates for daily periods of inactivity when cameras will not trigger.</p>
 <h1 id="questions">Questions</h1>
 <ul>
 <li>Explain the printed encounter rate and its standard error
