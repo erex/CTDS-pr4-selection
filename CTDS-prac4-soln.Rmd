@@ -36,7 +36,7 @@ Load the `Distance` package, the previously fitted models and the flat file of p
 ```{r reload}
 library(Distance)
 data("DuikerCameraTraps")
-load("C:/Users/erexs/Documents/GitHub/CTDS-pr2-duikerfit/duikermodels.RData")
+load("duikermodels.RData")
 ```
 
 # Compute QAIC for each set of key function models
